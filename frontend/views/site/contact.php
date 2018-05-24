@@ -7,7 +7,15 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
+use yii\widgets\ListView;
+use yii\data\ActiveDataProvider;
+use common\models\Team;
+
+$dataProvider = new ActiveDataProvider([
+    'query' => Team::find(),
+    'pagination' => false,
+]);
+
 
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
@@ -50,27 +58,11 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </header>
-    <section class="team owl-carousel">
-        <figure class="item row">
-        <div class="col-sm-offset-2 col-sm-4">
-            <h2>Гик Гикович</h2>
-            <h4>местный бездомный</h4>
-            <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Своего страну всемогущая собрал оксмокс заголовок правилами! Даль дорогу пунктуация речью текста заголовок вдали, своего строчка обеспечивает журчит там дал!</p>
-            <a href="#">Телеграм ми</a>
-        </div>
-        <div class="col-sm-offset-2 col-sm-4">
-           <img src="./img/team.png" alt="l">
-        </div>
-    </figure>
-    <figure class="item row">
-            <div class="col-sm-offset-2 col-sm-4">
-                <h2>Гик Гикович</h2>
-                <h4>местный бездомный</h4>
-                <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Своего страну всемогущая собрал оксмокс заголовок правилами! Даль дорогу пунктуация речью текста заголовок вдали, своего строчка обеспечивает журчит там дал!</p>
-                <a href="#">Телеграм ми</a>
-            </div>
-            <div class="col-sm-offset-2 col-sm-4">
-               <img src="./img/team.png" alt="l">
-            </div>
-        </figure>
+    <section class="team">
+    <?php echo ListView::widget([
+    'dataProvider' => $dataProvider,
+    'itemView' => '_team',
+    'summary'=>'', 
+    'options'=> ['class' => 'owl-carousel'],
+]); ?>
     </section>

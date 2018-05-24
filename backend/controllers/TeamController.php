@@ -71,7 +71,7 @@ class TeamController extends Controller
 
             $model->file = UploadedFile::getInstance($model, 'file');
             $model->file->saveAs(Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . '.' . $model->file->extension);
-            $model->profile_pic = Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->profile_pic = './img/' . $model->file->baseName . '.' . $model->file->extension;
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -96,7 +96,7 @@ class TeamController extends Controller
             unlink($model->profile_pic);
             $model->file = UploadedFile::getInstance($model, 'file');
             $model->file->saveAs(Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . '.' . $model->file->extension);
-            $model->profile_pic = Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->profile_pic = './img/' . $model->file->baseName . '.' . $model->file->extension;
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
