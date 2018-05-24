@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
+use common\models\Comment;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -12,9 +13,7 @@ class ContactForm extends Model
 {
     public $name;
     public $email;
-    public $subject;
     public $body;
-    public $verifyCode;
 
 
     /**
@@ -24,11 +23,9 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'email', 'body'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
-            // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
         ];
     }
 
@@ -37,9 +34,6 @@ class ContactForm extends Model
      */
     public function attributeLabels()
     {
-        return [
-            'verifyCode' => 'Verification Code',
-        ];
     }
 
     /**
@@ -53,8 +47,22 @@ class ContactForm extends Model
         return Yii::$app->mailer->compose()
             ->setTo($email)
             ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
+            ->setSubject('Сообщение с SoM')
             ->setTextBody($this->body)
             ->send();
+    }
+
+
+    public function saveComment(){
+        if (!$this->validate()) {
+            return null;
+        }
+
+        $comment = new Comment();
+        $comment->name = $this->name;
+        $comment->email = $this->email;
+        $comment->body = $this->body;
+        
+        return $comment->save() ? $comment : null;
     }
 }
