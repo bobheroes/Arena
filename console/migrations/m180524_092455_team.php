@@ -22,7 +22,7 @@ class m180524_092455_team extends Migration
             'position' => $this->string()->notNull(),
             'info' => $this->text()->notNull(),
             'link' => $this->string()->notNull(),
-            'pic' => $this->string()->notNull(),
+            'profile_pic' => $this->string()->notNull(),
         ], $tableOptions);
     }
 
