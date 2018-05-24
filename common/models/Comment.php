@@ -11,6 +11,7 @@ use Yii;
  * @property string $name
  * @property string $email
  * @property string $body
+ * @property string $created_at
  */
 class Comment extends \yii\db\ActiveRecord
 {
@@ -28,8 +29,9 @@ class Comment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'body'], 'required'],
+            [['name', 'email', 'body', 'created_at'], 'required'],
             [['body'], 'string'],
+            [['created_at'], 'safe'],
             [['name', 'email'], 'string', 'max' => 255],
         ];
     }
@@ -44,6 +46,7 @@ class Comment extends \yii\db\ActiveRecord
             'name' => 'Name',
             'email' => 'Email',
             'body' => 'Body',
+            'created_at' => 'Created At',
         ];
     }
 }

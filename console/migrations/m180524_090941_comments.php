@@ -23,6 +23,7 @@ class m180524_090941_comments extends Migration
             'name' => $this->string()->notNull(),
             'email' => $this->string()->notNull(),
             'body' => $this->text()->notNull(),
+            'created_at' => $this->date()->notNull(),
         ], $tableOptions);
     }
 

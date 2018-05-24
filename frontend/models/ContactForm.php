@@ -62,6 +62,7 @@ class ContactForm extends Model
         $comment->name = $this->name;
         $comment->email = $this->email;
         $comment->body = $this->body;
+        $comment->created_at = date('Y-m-d H:i:s');
         
         return $comment->save() ? $comment : null;
     }
