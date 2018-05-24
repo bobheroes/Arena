@@ -2,52 +2,42 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+use yii\helpers\Url;
+
+$this->title = 'Steam of Magic';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
+<header class="main">
+<nav>
+        <ul>
+            <li><a href="<?=Url::toRoute(['site/index'])?>">Главная</a></li>
+            <li><a href="<?=Url::toRoute(['site/about'])?>">О мире</a></li>
+            <li><img src="img/logo.png" alt="logo"></li>
+            <li><a href="<?=Url::toRoute(['site/news'])?>">Новости</a></li>
+            <li><a href="<?=Url::toRoute(['site/contact'])?>">Контакты</a></li>
+        </ul>
+    </nav>
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+            <div class="col-xs-offset-1 col-sm-4 col-xs-10">
+				<h2>Супер привлекающий текст
+						от которого потекут</h2>
+					<p>Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты. Ipsum сих ручеек, однажды лучше встретил коварный дорогу, оксмокс образ вопроса гор большого маленькая живет домах ее запятой силуэт свой!</p>
+					<input type="button" value="Скачать игру">
+				</div>
         </div>
-
-    </div>
-</div>
+    </header>
+    <section class="game row">
+        <figure class="col-sm-5"><img src="./img/man.png" alt="man"></figure>
+        <div class="col-sm-5 col-xs-10 col-xs-offset-1">
+                <h2 >Погрузись в фантастический мир темного фэнтези</h2>
+                <p >Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Имени рукопись проектах первую большой текстов деревни продолжил от всех своего меня которой они вопрос коварных текст грустный, своих последний одна.</p>
+        </div>
+    </section>
+    <section class="latest row">
+            <div class="col-xs-offset-1 col-sm-5 col-xs-10">
+                    <h3>Супер привлекающий текст
+                            от которого потекут</h3>
+                        <p>Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты. Ipsum сих ручеек, однажды лучше встретил коварный дорогу, оксмокс образ вопроса гор большого маленькая живет домах ее запятой силуэт свой!</p>
+                        <input type="button" value="Подробнее">
+                    </div>
+        <figure class="col-sm-5"><img src="./img/kristall.png" alt="kristall"></figure>
+    </section>
