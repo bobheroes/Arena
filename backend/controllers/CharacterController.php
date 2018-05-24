@@ -3,17 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Team;
-use backend\models\TeamSearch;
+use common\models\Character;
+use backend\models\CharacterSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
 /**
- * TeamController implements the CRUD actions for Team model.
+ * CharacterController implements the CRUD actions for Character model.
  */
-class TeamController extends Controller
+class CharacterController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,12 +31,12 @@ class TeamController extends Controller
     }
 
     /**
-     * Lists all Team models.
+     * Lists all Character models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TeamSearch();
+        $searchModel = new CharacterSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +46,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Displays a single Team model.
+     * Displays a single Character model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,16 +59,15 @@ class TeamController extends Controller
     }
 
     /**
-     * Creates a new Team model.
+     * Creates a new Character model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Team();
+        $model = new Character();
 
         if ($model->load(Yii::$app->request->post())) {
-
             $model->file = UploadedFile::getInstance($model, 'file');
             $model->file->saveAs(Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . '.' . $model->file->extension);
             $model->profile_pic = './img/' . $model->file->baseName . '.' . $model->file->extension;
@@ -82,7 +81,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Updates an existing Team model.
+     * Updates an existing Character model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -107,7 +106,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Deletes an existing Team model.
+     * Deletes an existing Character model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -115,22 +114,21 @@ class TeamController extends Controller
      */
     public function actionDelete($id)
     {
-        // unlink($this->findModel($id)->profile_pic);
         $this->findModel($id)->delete();
-
+        // unlink($this->findModel($id)->profile_pic);
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Team model based on its primary key value.
+     * Finds the Character model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Team the loaded model
+     * @return Character the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Team::findOne($id)) !== null) {
+        if (($model = Character::findOne($id)) !== null) {
             return $model;
         }
 
