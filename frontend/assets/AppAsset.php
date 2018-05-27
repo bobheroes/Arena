@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
         'css/style.css',
         'css/owl.carousel.min.css',
         'css/owl.theme.default.min.css',
+        'css/fontawesome-all.min.css',
     ];
     public $js = [
         'js/main.js',

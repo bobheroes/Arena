@@ -12,6 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Post;
 
 /**
  * Site controller
@@ -72,7 +73,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = Post::find()->orderBy(['id' => SORT_DESC])->one();;
+        return $this->render('index', [
+            'model' => $model,
+            ]);
     }
 
     /**
@@ -149,6 +153,16 @@ class SiteController extends Controller
     {
         return $this->render('news');
     }
+
+    public function actionArticle($id)
+    {
+        $model = Post::findOne($id);
+        return $this->render('article', [
+            'model' => $model,
+            ]);
+    }
+
+    
 
     /**
      * Signs user up.

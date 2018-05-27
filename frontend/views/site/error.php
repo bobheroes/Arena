@@ -6,11 +6,21 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = $name;
 ?>
-<div class="site-error">
-
+<header class="main">
+<nav>
+    <ul>
+         <li><a href="<?=Url::toRoute(['site/index'])?>">Главная</a></li>
+         <li><a href="<?=Url::toRoute(['site/about'])?>">О мире</a></li>
+         <li><img src="img/logo.png" alt="logo"></li>
+         <li><a href="<?=Url::toRoute(['site/news'])?>">Новости</a></li>
+         <li><a href="<?=Url::toRoute(['site/contact'])?>">Контакты</a></li>
+    </ul>
+</nav>
+<div>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="alert alert-danger">
@@ -25,3 +35,4 @@ $this->title = $name;
     </p>
 
 </div>
+</header>

@@ -2,7 +2,18 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ListView;
+use yii\data\ActiveDataProvider;
+use common\models\Post;
+
+$dataProvider = new ActiveDataProvider([
+    'query' => Post::find(),
+    'pagination' => [
+        'pageSize' => 4,
+    ],
+]);
 
 $this->title = 'Новости';
 ?>
@@ -25,47 +36,19 @@ $this->title = 'Новости';
 				</div>
         </div>
     </header>
-<section class="news">
-    <article class="row">
-        <figure  class="col-sm-4 col-sm-offset-1">
-            <img src="./img/news1.jpg" alt="news img">
-        </figure>
-        <div class="col-md-4 col-sm-6 ">
-            <h2>Заголовок новости</h2>
-            <span class="date">10.10.2017</span>
-            <p>Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Рукопись безопасную текста сбить одна то послушавшись обеспечивает, повстречался приставка.</p>
-            <a href="#">Читать дальше</a>
-        </div>
-</article>
-<article class="row">
-        <figure  class="col-sm-4 col-sm-offset-1">
-            <img src="./img/news1.jpg" alt="news img">
-        </figure>
-        <div class="col-md-4 col-sm-6 ">
-            <h2>Заголовок новости</h2>
-            <span class="date">10.10.2017</span>
-            <p>Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Рукопись безопасную текста сбить одна то послушавшись обеспечивает, повстречался приставка.</p>
-            <a href="#">Читать дальше</a>
-        </div>
-</article>
-<article class="row">
-        <figure  class="col-sm-4 col-sm-offset-1">
-            <img src="./img/news1.jpg" alt="news img">
-        </figure>
-        <div class="col-md-4 col-sm-6 ">
-            <h2>Заголовок новости</h2>
-            <span class="date">10.10.2017</span>
-            <p>Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Рукопись безопасную текста сбить одна то послушавшись обеспечивает, повстречался приставка.</p>
-            <a href="#">Читать дальше</a>
-        </div>
-</article>
-    <ul class="pagination">
-        <li><a href="#" class="fas fa-arrow-left" ></a></li>
-        <li><a href="#" class="active">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">...</a></li>
-        <li><a href="#">15</a></li>
-        <li><a href="#" class="fas fa-arrow-right"></a></li>
-    </ul>
 
+    
+<section class="news">
+    <<?php echo ListView::widget([
+    'dataProvider' => $dataProvider,
+    'itemView' => '_post',
+    'summary'=>'', 
+    'pager' => [
+        'pagination'=> [
+   
+            
+        ]
+],
+    
+]); ?>
 </section>

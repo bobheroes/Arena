@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = 'Steam of Magic';
@@ -34,10 +34,10 @@ $this->title = 'Steam of Magic';
     </section>
     <section class="latest row">
             <div class="col-xs-offset-1 col-sm-5 col-xs-10">
-                    <h3>Супер привлекающий текст
-                            от которого потекут</h3>
-                        <p>Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты. Ipsum сих ручеек, однажды лучше встретил коварный дорогу, оксмокс образ вопроса гор большого маленькая живет домах ее запятой силуэт свой!</p>
-                        <input type="button" value="Подробнее">
+                    <h3><?= Html::encode($model->title) ?></h3>
+                        <p><?= Html::encode($model->anons) ?></p>
+                        <input type="button" value="Все новости" onclick="location.href='<?=Url::toRoute(['site/news'])?>';">
+
                     </div>
         <figure class="col-sm-5"><img src="./img/kristall.png" alt="kristall"></figure>
     </section>
