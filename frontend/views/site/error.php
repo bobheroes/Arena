@@ -15,7 +15,7 @@ $this->title = $name;
     <ul>
          <li><a href="<?=Url::toRoute(['site/index'])?>">Главная</a></li>
          <li><a href="<?=Url::toRoute(['site/about'])?>">О мире</a></li>
-         <li><img src="img/logo.png" alt="logo"></li>
+         <li><img src="img/logo.svg" alt="logo"></li>
          <li><a href="<?=Url::toRoute(['site/news'])?>">Новости</a></li>
          <li><a href="<?=Url::toRoute(['site/contact'])?>">Контакты</a></li>
     </ul>

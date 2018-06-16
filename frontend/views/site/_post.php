@@ -2,15 +2,14 @@
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 ?>
-    
-<article class="row">
-    <figure  class="col-sm-4 col-sm-offset-1">
-        <img src="./img/news1.jpg" alt="news img">
-    </figure>
-    <div class="col-md-4 col-sm-6 ">
+
+
+<figure class="effect-goliath">
+    <img src="<?= Html::encode($model->profile_pic) ?>" alt="img24">
+    <figcaption>
         <h2><?= Html::encode($model->title) ?></h2>
-        <span class="date"><?= Html::encode($model->date) ?></span>
+        <p class="date"><?= Html::encode($model->date) ?></p>
         <p><?= Html::encode($model->anons) ?></p>
-        <?= Html::a('Читать далее', ['article', 'id' => $model->id]) ?>
-    </div>
-</article>
+        <?= Html::a('', ['article', 'id' => $model->id]) ?>
+    </figcaption>			
+</figure>

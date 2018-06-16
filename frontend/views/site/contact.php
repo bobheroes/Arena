@@ -17,7 +17,7 @@ $dataProvider = new ActiveDataProvider([
 ]);
 
 
-$this->title = 'Contact';
+$this->title = 'Контакты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <header class="contact">
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <ul>
             <li><a href="<?=Url::toRoute(['site/index'])?>">Главная</a></li>
             <li><a href="<?=Url::toRoute(['site/about'])?>">О мире</a></li>
-            <li><img src="img/logo.png" alt="logo"></li>
+            <li><img src="img/logo.svg" alt="logo"></li>
             <li><a href="<?=Url::toRoute(['site/news'])?>">Новости</a></li>
             <li><a href="<?=Url::toRoute(['site/contact'])?>">Контакты</a></li>
         </ul>
@@ -42,7 +42,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'body')->textarea(['rows' => 9, 'placeholder'=>'Ваш фидбэк'])->label(false) ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                <fieldset><label for="agree" class="fake-label">
+                            <input type="checkbox" name="agree" id="agree">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                        </label>
+            <p>Я принимаю условия <a href="#" target="_blank">соглашения</a></p></fieldset> 
+                    <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button', 'disabled' => 'disabled']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>

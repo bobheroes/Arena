@@ -32,7 +32,7 @@ AppAsset::register($this);
 
 <footer>
             <div>
-            <a href="">Поддержать нас</a>
+            <!-- <a href="">Поддержать нас</a> -->
             <ul>
                 <li><a href="#" class="fab fa-facebook-f"></a></li>
                 <li><a href="#" class="fab fa-twitter"></a></li>
