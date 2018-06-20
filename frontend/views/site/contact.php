@@ -68,6 +68,9 @@ $this->params['breadcrumbs'][] = $this->title;
     'dataProvider' => $dataProvider,
     'itemView' => '_team',
     'summary'=>'', 
+    'itemOptions' => [
+        'tag' => false,
+    ],
     'options'=> ['class' => 'owl-carousel'],
 ]); ?>
     </section>

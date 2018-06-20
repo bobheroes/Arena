@@ -90,8 +90,8 @@ class TeamController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             $model->file = UploadedFile::getInstance($model, 'file');
-            $model->file->saveAs(Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . '.' . $model->file->extension);
-            $model->profile_pic = './img/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->file->saveAs(Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . time() . '.' . $model->file->extension);
+            $model->profile_pic = './img/' . $model->file->baseName . time() . '.' . $model->file->extension;
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -113,10 +113,10 @@ class TeamController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            // unlink($model->profile_pic);
+            unlink(Yii::getAlias('@frontend') . '/web/' . $model->profile_pic);
             $model->file = UploadedFile::getInstance($model, 'file');
-            $model->file->saveAs(Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . '.' . $model->file->extension);
-            $model->profile_pic = './img/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->file->saveAs(Yii::getAlias('@frontend') . '/web/img/' . $model->file->baseName . time() . '.' . $model->file->extension);
+            $model->profile_pic = './img/' . $model->file->baseName . time() . '.' . $model->file->extension;
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -135,9 +135,9 @@ class TeamController extends Controller
      */
     public function actionDelete($id)
     {
-        // unlink($this->findModel($id)->profile_pic);
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        unlink(Yii::getAlias('@frontend') . '/web/' . $model->profile_pic);
+        $model->delete();
         return $this->redirect(['index']);
     }
 

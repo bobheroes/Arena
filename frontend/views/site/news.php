@@ -41,6 +41,9 @@ $this->title = 'Новости';
     <?php echo ListView::widget([
     'dataProvider' => $dataProvider,
     'itemView' => '_post',
+    'itemOptions' => [
+        'tag' => false,
+    ],
     'summary'=>'',     
 ]); ?>
 </div>
